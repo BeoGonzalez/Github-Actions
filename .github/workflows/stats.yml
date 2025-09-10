@@ -12,11 +12,11 @@ jobs:
     
     steps:
       - name: Checkout repo
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
 
       - name: configurando python
-        uses: actions/setup-python@5.3         
-        with: 
+        uses: actions/setup-python@v5.3
+        with:
           python-version: '3.11'
 
       - name: Correr script

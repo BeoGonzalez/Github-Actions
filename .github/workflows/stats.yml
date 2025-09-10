@@ -1,0 +1,31 @@
+name: Stats
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+    
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@4
+
+      - name: configurando python
+        uses: actions/setup-python@5.3         
+        with: 
+          python-version: '3.11'
+
+      - name: Correr script
+        run: python stats.py
+
+      - name: Commit y Push cambios
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit-message: Actualizar stats
+          commit-user: BeoGonzalez [Github Actions]
+          commit-user-email: beo.gonzalez@duocuc.cl
+          commit-author: El_Benja
